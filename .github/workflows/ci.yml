@@ -2,7 +2,7 @@ name: Chrome headed
 on: push
 jobs:
   cypress-run:
-    runs-on: ubuntu-22.04
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@v4
       - uses: cypress-io/github-action@v6
