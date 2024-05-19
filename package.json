@@ -1,0 +1,19 @@
+{
+  "name": "retailer_webtool",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sandro",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cypress": "^13.9.0",
+    "cypress-mochawesome-reporter": "^3.8.2"
+  },
+  "devDependencies": {
+    "cypress-iframe": "^1.0.1",
+    "cypress-xpath": "^2.0.1"
+  }
+}

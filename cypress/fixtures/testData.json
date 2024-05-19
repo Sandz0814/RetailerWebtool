@@ -1,0 +1,41 @@
+[{
+    "username": "sandri@gmail.com",
+    "password": "12345qwert",
+    "expected": "These credentials do not match our records."
+    
+
+},
+{
+    "username": "sandrix@gmail.com",
+    "password": "12345qwer",
+    "expected": "These credentials do not match our records."
+
+
+},
+{
+    "username": "sandrix@gmail.com",
+    "password": "",
+    "expected": "The password field is required."
+
+
+},
+{
+    "username": "",
+    "password": "12345qwert",
+    "expected": "The email field is required."
+
+
+},
+{
+    "username": "InvalidEmailgmail.com",
+    "password": "12345qwert",
+    "expected": "Invalid email address."
+
+
+},
+{
+    "username": "sandrix@gmail.com",
+    "password": "12345qwert",
+    "expected": "Logout"
+}
+]
