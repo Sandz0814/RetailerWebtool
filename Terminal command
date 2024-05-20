@@ -1,0 +1,13 @@
+ git branch HTML_REPORT  -- how to create branch
+ 
+ git rm -rf .  --- Deleting the existing file in the branch
+
+ git checkout HTML_report -- cypress/reports/html --- copying file from other branch
+
+git branch -d HTMLrepors  -- how to delete repo
+git push origin --delete HTMLrepors  -- push delete repo
+
+
+node -v  -- verifying the node version
+
+
