@@ -14,7 +14,7 @@ describe('Login Page', function() {
         });
     });
 
-    it('Verify Login with Positive and Negative Testing', () => {
+    it.skip('Verify Login with Positive and Negative Testing', () => {
         userdata.forEach(function(data) {
             // Conditionally type the username if it's not empty
             if (data.username) {

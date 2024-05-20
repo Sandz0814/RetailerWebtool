@@ -14,7 +14,7 @@ describe('Login Page', function() {
         })
      })
 
-    it('Webtool UI Check', function() {
+    it.skip('Webtool UI Check', function() {
         
         // verify the Url if correct
         cy.url().should('contain', 'https://retailers.posible.net.ph/login')

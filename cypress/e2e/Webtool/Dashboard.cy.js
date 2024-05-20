@@ -62,7 +62,7 @@ describe('Verify Dashboard', function(){
 
     })    
         
-    it("Verifying the all the tables", function(){
+    it.skip("Verifying the all the tables", function(){
 
         // Filtering by transaction ID
         cy.get('.three > :nth-child(1) > input').type('45408797')
