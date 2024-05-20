@@ -74,7 +74,7 @@ Steps:
 
     6. Configure Cypress to Use mochawesome:
 
-        Add the following configuration to your cypress.json file:
+        Add the following configuration to your package.json file:
 
         {
         "reporter": "mochawesome",
