@@ -1,21 +1,12 @@
-name: Deploy HTML Report
-
-on:
-  push:
-    branches:
-      - HTML_REPORT  # Trigger when pushing to the html-report branch
-
+name: End-to-end tests
+on: push
 jobs:
-  deploy-html-report:
-    runs-on: ubuntu-latest
-
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: cypress\reports # Directory containing your HTML report files
-          publish_branch: HTML_REPORT  # Branch to deploy to
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
