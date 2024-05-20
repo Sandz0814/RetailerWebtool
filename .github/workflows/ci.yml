@@ -1,37 +1,12 @@
-name: Deploy HTML Report to GitHub Pages
-
-on: 
-  push: 
-    branches:
-      - master  # or the branch where the report is generated
-
+name: End-to-end tests
+on: push
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Cypress tests
-        run: npx cypress run
-
-      - name: Generate HTML report
-        run: |
-          mv cypress/reports/html/index.html .  # Move index.html to root
-          mv cypress/reports/html/assets ./assets  # Move assets directory to root
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .  # Root directory
-          publish_branch: html-reports  # Branch to deploy to
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
