@@ -10,23 +10,37 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.9.0'
+
       - name: Install dependencies
         run: npm install
 
       - name: Run Cypress tests
-        run: npm run cy:run
+        run: npx cypress run
 
       - name: Generate HTML report
-        run: npm run generate-report
+        run: |
+          npx mochawesome-merge cypress/reports/*.json > cypress/reports/report.json
+          npx mochawesome-report-generator cypress/reports/report.json
 
       - name: Deploy to GitHub Pages
         if: success()
         run: |
+          # Configure Git
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # Clone gh-pages branch
           git clone --branch=gh-pages https://github.com/${{ github.repository }} gh-pages
+          
+          # Copy generated report to gh-pages branch
           rm -rf gh-pages/*
           cp -r cypress/reports/* gh-pages/
+          
+          # Commit and push changes
           cd gh-pages
           git add --all
           git commit -m "Update HTML report"
