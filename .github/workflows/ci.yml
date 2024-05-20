@@ -3,7 +3,7 @@ name: Deploy HTML Report to GitHub Pages
 on: 
   push: 
     branches:
-      - html-reports  # or the branch where the report is generated
+      - master  # or the branch where the report is generated
 
 jobs:
   build-and-deploy:
