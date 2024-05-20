@@ -1,9 +1,9 @@
 name: Deploy HTML Report to GitHub Pages
 
-on:
-  push:
+on: 
+  push: 
     branches:
-      - master  # Adjust this to your test branch if needed
+      - master  # or the branch where the report is generated
 
 jobs:
   build-and-deploy:
@@ -19,23 +19,15 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm ci  # Use npm ci for clean install
+        run: npm install
 
       - name: Run Cypress tests
-        run: npm run cy:run
+        run: npx cypress run
 
       - name: Generate HTML report
-        run: npm run generate-report
-
-      - name: Move report files
         run: |
-          if [ -d "cypress/reports/html" ]; then
-            mv cypress/reports/html/index.html ./index.html  # Move index.html to root
-            mv cypress/reports/html/assets ./assets  # Move assets directory to root
-          else
-            echo "Report directory not found"
-            exit 1
-          fi
+          mv cypress/reports/html/index.html .  # Move index.html to root
+          mv cypress/reports/html/assets ./assets  # Move assets directory to root
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
