@@ -19,3 +19,5 @@ cd ../../../
 # git add index.html assets
 # git commit -m "Move HTML report files to root directory for GitHub Pages"
 # git push origin gh-pages  # Replace 'gh-pages' with your branch name
+
+# https://github.com/cypress-io/github-action?tab=readme-ov-file#chrome ---Yaml sites

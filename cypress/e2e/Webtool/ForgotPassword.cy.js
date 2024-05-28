@@ -22,8 +22,10 @@ describe('Validate Forgot Passwor', ()=> {
 
         cy.get("div[id='sf-resetcontent'] h1").invoke('text').then((elementText) => {
             if (elementText === expectedResult) {
+              cy.get(expectedResult).should('be.visible').and('exist')
               cy.log("Finally it is fixed");
             } else {
+              cy.get('h1').should('be.visible').and('exist')
               cy.log("Forgot password has still not fixed");
               cy.log("Forgot Password feature failed");
               cy.screenshot("cypress/PassedScreenshots/Whoops, Looks like something went wrong")

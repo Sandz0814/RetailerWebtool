@@ -85,5 +85,5 @@ describe('Login Page', function() {
             }
         });
     });
-})
+});
     
